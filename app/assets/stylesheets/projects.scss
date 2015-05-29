@@ -1,0 +1,48 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation/components/switches";
+
+.square_box{
+  margin-top: 10%;
+  height: 150px;
+  width: 150px; 
+  background-color: #000000;
+  text-color: #ffffff;
+}
+
+.audio_play{
+  text-color: white;
+}
+.ezbeats{
+  // background-color: black;  
+}
+
+.input{
+  @include switch;
+}
+
+h1{
+  text-color: #ffffff;
+}
+
+#dice1{
+  text-color: white;
+  background-color: white;
+  font-size: 100px;
+}
+
+#dice2{
+  text-color: white;
+  background-color: white;
+  font-size: 100px;
+}
+
+.spin-effect{
+  -webkit-animation: spin 1s, infinite, linear;
+}
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}   
+}
