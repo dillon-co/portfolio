@@ -2,6 +2,7 @@
 
 %div
   .panel{:class => 'ezbeats'}
+  .form{:class => 'custom'}
     - Dir.foreach("#{Dir.getwd}/public/audios").with_index do |folder, dir_index|
       - next if folder == '.' || folder == '..' || folder == '.DS_Store'
       #title{:style => "margin: 5px;"}= "#{folder.capitalize}"
@@ -10,10 +11,12 @@
         - next if song == '.' || song == '..' || song == '.DS_Store'
 
         = audio_tag "#{folder}/#{song}", class: "audio_play", id:"#{dir_index}_#{index}_sound"
-        = checkbox "#{dir_index}_#{index}", checked: @mix.is_checked?("#{dir_index}_#{index}_sound"), data: {toggle: 'toggle'}, class: "songs btn btn-lg btn-primary", id:"#{dir_index}_#{index}"
+        = switch "#{dir_index}_#{index}", data: {toggle: 'toggle'}, class: "songs btn button long button primary", id:"#{dir_index}_#{index}"
 
     .button.buttonprimary{:onclick => "toggleOffByInput()", :style => "margin-top: 20px;"} Clean
     .button.buttonprimary{:onclick => "toggleOff()", :style => "margin-top: 20px;"} Stop
 .div{:class => 'switch'}
   .input{:type => 'checkbox', :id => 'checkitout'}
   .label{:for => 'checkitout'}
+
+/ checked: @mix.is_checked?("#{dir_index}_#{index}_sound")
