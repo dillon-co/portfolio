@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BlackJack</title>
+    <% stylesheet_link_tag "party.css" %>
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="index.js"></script>
+    <script src="five_card.js"></script>
+    <script src="blackjack.js"></script>
+  </head>
+  <body>
+  <div ng-controller="blackjack">
+    <h1 >Draw Cards Here.</h1>
+    <h3>{{game.deck.length}} cards in deck.</h3>
+    <button ng-click="draw()">Draw!</button>
+    <h1>{{game.deckLength}}</h1>
+    <h2>Your cards are...</h2>
+    <card ng-repeat="card in game.player" val="{{card}}"></card>
+    <h3>Which adds up to {{game.handVal(game.player)}}</h3>
+    <span>
+      <button ng-click="hit()">Hit!</button>
+    </span>
+    <span>
+      <button ng-click="stay()">Stay!</button>
+    </span>
+    <div>
+      <h2>The computer's hand is</h2>
+      <card ng-repeat="card in game.computer" val={{card}}></card>
+      <h3>Which adds up to {{game.handVal(game.computer)}}</h3>
+    </div>
+    <div>
+      <h1 class="strong">{{game.winner}}</h1>
+    </div>
+  </div>
+
+  <div ng-controller="fivecard">
+    <br/><hr/><br/>
+    <h1>Five Card Draw!</h1>
+      <button ng-click="draw()">Draw!</button><br/><br/>
+      <h2>Your hand</h2>
+      <card ng-repeat="card in game.player" val="{{card}}"></card>
+      <br/><br/>
+        <h1>{{game.winner}}</h1>
+      <br/><br/>
+      <button ng-click="playerfinish()">
+        What did you have?
+      </button>
+
+      <h2>House's Hand</h2>
+      <card ng-repeat="card in game.computer" val={{card}}></card>
+      <br/><br/>
+
+      <div>
+        <button ng-click="computerfinish()">
+          What did the house have?
+        </button>
+        <button ng-click="getWinner()">Who Won?</button>
+        <h2>{{game.winningVal}}</h2>
+      </div>
+  </div>
+    <!-- // <script src="node_modules/angular/angular.js"></script> -->
+     <!-- <script src="five_card.js"></script>
+     <script src="blackjack.js"></script>
+     <script src="index.js"></script> -->
+  </body>
+</html>
